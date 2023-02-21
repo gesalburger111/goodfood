@@ -21,7 +21,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
+// 수정
 public class index2 {
     static Random random = new Random();
     static int random_data = 0;
