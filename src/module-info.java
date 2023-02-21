@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author codepc
- *
- */
-module goodfood {
-}
