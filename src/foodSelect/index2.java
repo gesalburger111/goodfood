@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -124,7 +125,12 @@ public class index2 {
     public static void sub_Frame(String cate){
         JFrame f2 = new JFrame("오늘의 " + cate + " 추천 메뉴는 ??");
         JPanel p2 = new JPanel();
+<<<<<<< Updated upstream
         f2.setSize(500,400);
+=======
+        
+        f2.setSize(800,700);
+>>>>>>> Stashed changes
         f2.setLocationRelativeTo(null);
         f2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f2.getContentPane().setLayout(null);
@@ -138,8 +144,30 @@ public class index2 {
             changed = "korea";
             cate_name = "한식";
             select();
+<<<<<<< Updated upstream
             JLabel label = new JLabel(menu_list.get(random_data).getname()+" 입니다!");
+=======
+            //////////////
+            JLabel imgLabel = new JLabel();
+            ImageIcon icon = new ImageIcon(
+            		JFrame.class.getResource("/img/라멘.jpg")
+                );
+            imgLabel.setIcon(icon);
+            imgLabel.setBounds(200, 100, 400, 400);
+            imgLabel.setHorizontalAlignment(JLabel.CENTER);
+            f2.add(imgLabel);
+            JLabel label = new JLabel("<html><br><br><center>오늘의 추천 메뉴는 "+menu_list.get(random_data).getname()+" 입니다!"
+            		+ "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>" + "창원대 근처의 " + menu_list.get(random_data).getname()+" 맛집 추천<br><br>"
+    				+ menu_list.get(random_data).getPlace()+"</center></html>");
+>>>>>>> Stashed changes
             p2.add(label);
+            //if(random_data == 김밥의 인덱스) {
+            	//String srt = "/img/김밥.jpg";
+        	//}
+            //ImageIcon icon = new ImageIcon(
+    		//JFrame.class.getResource(str)
+            //);
+            //
         }
         else if(cate == "중식"){
             changed = "china";
