@@ -22,7 +22,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
+//ㅎㅇ
 public class index {
     static Random random = new Random();
     static int random_data = 0;
