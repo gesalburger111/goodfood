@@ -1,5 +1,5 @@
 package foodSelect;
-//// SSH 연결
+//// SSH �뿰寃�
 //import com.jcraft.jsch.JSch; 
 //import com.jcraft.jsch.Session;	
 
@@ -36,17 +36,17 @@ public class index2 {
     static String cate_name;
 
     public static void main_Frame(){
-        JFrame f = new JFrame("오늘 뭐 먹지?");
+        JFrame f = new JFrame("�삤�뒛 萸� 癒뱀�?");
         f.setSize(500,200);
         f.setLocationRelativeTo(null);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.getContentPane().setLayout(null);
 
-        JButton korea = new JButton("한식");
-        JButton china = new JButton("중식");
-        JButton japan = new JButton("일식");
-        JButton western = new JButton("양식");
-        JButton total = new JButton("전체 랜덤");					// total : 전체랜덤
+        JButton korea = new JButton("�븳�떇");
+        JButton china = new JButton("以묒떇");
+        JButton japan = new JButton("�씪�떇");
+        JButton western = new JButton("�뼇�떇");
+        JButton total = new JButton("�쟾泥� �옖�뜡");					// total : �쟾泥대옖�뜡
         
         
 
@@ -67,8 +67,8 @@ public class index2 {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JButton btn = (JButton) e.getSource();
-                if(btn.getText().equals("한식")){
-                    cate = "한식";
+                if(btn.getText().equals("�븳�떇")){
+                    cate = "�븳�떇";
                     sub_Frame(cate);
                     f.dispose();
                 }
@@ -78,8 +78,8 @@ public class index2 {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JButton btn = (JButton) e.getSource();
-                if(btn.getText().equals("중식")){
-                    cate = "중식";
+                if(btn.getText().equals("以묒떇")){
+                    cate = "以묒떇";
                     sub_Frame(cate);
                     f.dispose();
                 }
@@ -89,8 +89,8 @@ public class index2 {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JButton btn = (JButton) e.getSource();
-                if(btn.getText().equals("일식")){
-                    cate = "일식";
+                if(btn.getText().equals("�씪�떇")){
+                    cate = "�씪�떇";
                     sub_Frame(cate);
                     f.dispose();
                 }
@@ -100,8 +100,8 @@ public class index2 {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JButton btn = (JButton) e.getSource();
-                if(btn.getText().equals("양식")){
-                    cate = "양식";
+                if(btn.getText().equals("�뼇�떇")){
+                    cate = "�뼇�떇";
                     sub_Frame(cate);
                     f.dispose();
                 }
@@ -111,8 +111,8 @@ public class index2 {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JButton btn = (JButton) e.getSource();
-                if(btn.getText().equals("전체 랜덤")){
-                    cate = "전체 랜덤";
+                if(btn.getText().equals("�쟾泥� �옖�뜡")){
+                    cate = "�쟾泥� �옖�뜡";
                     sub_Frame(cate);
                     f.dispose();
                 }
@@ -122,7 +122,7 @@ public class index2 {
     
 
     public static void sub_Frame(String cate){
-        JFrame f2 = new JFrame("오늘의 " + cate + " 추천 메뉴는 ??");
+        JFrame f2 = new JFrame("�삤�뒛�쓽 " + cate + " 異붿쿇 硫붾돱�뒗 ??");
         JPanel p2 = new JPanel();
         f2.setSize(500,400);
         f2.setLocationRelativeTo(null);
@@ -134,39 +134,39 @@ public class index2 {
 
         contentPane.setLayout(new BorderLayout());
 
-        if(cate == "한식"){
+        if(cate == "�븳�떇"){
             changed = "korea";
-            cate_name = "한식";
+            cate_name = "�븳�떇";
             select();
-            JLabel label = new JLabel(menu_list.get(random_data).getname()+" 입니다!");
+            JLabel label = new JLabel(menu_list.get(random_data).getname()+" �엯�땲�떎!");
             p2.add(label);
         }
-        else if(cate == "중식"){
+        else if(cate == "以묒떇"){
             changed = "china";
-            cate_name = "중식";
+            cate_name = "以묒떇";
             select();
-            JLabel label = new JLabel(menu_list.get(random_data).getname()+" 입니다!");
+            JLabel label = new JLabel(menu_list.get(random_data).getname()+" �엯�땲�떎!");
             p2.add(label);
         }
-        else if(cate == "일식"){
+        else if(cate == "�씪�떇"){
             changed = "japan";
-            cate_name = "일식";
+            cate_name = "�씪�떇";
             select();
-            JLabel label = new JLabel(menu_list.get(random_data).getname()+" 입니다!");
+            JLabel label = new JLabel(menu_list.get(random_data).getname()+" �엯�땲�떎!");
             p2.add(label);
         }
-        else if(cate == "양식"){
+        else if(cate == "�뼇�떇"){
             changed = "western";
-            cate_name = "양식";
+            cate_name = "�뼇�떇";
             select();
-            JLabel label = new JLabel(menu_list.get(random_data).getname()+" 입니다!");
+            JLabel label = new JLabel(menu_list.get(random_data).getname()+" �엯�땲�떎!");
             p2.add(label);
         }
-        else if(cate == "전체 랜덤"){													//
+        else if(cate == "�쟾泥� �옖�뜡"){													//
             changed = "Total";
-            cate_name = "전체 랜덤";
+            cate_name = "�쟾泥� �옖�뜡";
             select();
-            JLabel label = new JLabel(menu_list.get(random_data).getname()+" 입니다!");
+            JLabel label = new JLabel(menu_list.get(random_data).getname()+" �엯�땲�떎!");
             p2.add(label);
         }
         
