@@ -1,4 +1,4 @@
-package foodSelect;
+package test;
 //// SSH 연결
 //import com.jcraft.jsch.JSch; 
 //import com.jcraft.jsch.Session;	
@@ -21,7 +21,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
+// 수정
 public class index2 {
     static Random random = new Random();
     static int random_data = 0;
@@ -183,8 +183,32 @@ public class index2 {
             p2.add(label);
         }
         
+        JButton re = new JButton("다시하기");
+        re.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		f2.dispose();
+        		sub_Frame(cate);
+        	}
+        });
+        JButton back = new JButton("뒤로가기");
+        back.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		f2.dispose();
+        		menu_list.clear();
+        		main_Frame();
+        	}
+        });
         
+        JPanel pnl = new JPanel();
+        
+        pnl.add(re);
+        pnl.add(back);
         f2.add(p2);
+        f2.add(pnl,BorderLayout.SOUTH);
+        re.setBackground(Color.WHITE);
+        back.setBackground(Color.WHITE);
+//        re.setBorderPainted(false);
+//        back.setBorderPainted(false);
         f2.setVisible(true);
 
     }
@@ -233,3 +257,4 @@ public class index2 {
         main_Frame();
     }
 }
+
