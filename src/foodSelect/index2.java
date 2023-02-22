@@ -208,14 +208,11 @@ public class index2 {
         }
         
         
-<<<<<<< Updated upstream
-=======
         JPanel pnl = new JPanel();
         
         
         pnl.add(re);
         pnl.add(back);
->>>>>>> Stashed changes
         f2.add(p2);
         f2.setVisible(true);
         
