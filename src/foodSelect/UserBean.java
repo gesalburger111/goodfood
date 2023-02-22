@@ -4,6 +4,10 @@ package foodSelect;
 public class UserBean {
     String name;
     String place;
+<<<<<<< Updated upstream
+=======
+    int idx;
+>>>>>>> Stashed changes
     public String getname(){
         return name;
     }
@@ -16,5 +20,15 @@ public class UserBean {
 	public void setPlace(String place) {
 		this.place = place;
 	}
+<<<<<<< Updated upstream
     
+=======
+	public int getIdx() {
+		return idx;
+	}
+	public void setIdx(int idx) {
+		this.idx = idx;
+	}
+ 
+>>>>>>> Stashed changes
 }

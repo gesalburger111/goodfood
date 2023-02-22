@@ -18,12 +18,13 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 // 수정
-public class index2 {
+public class index3 {
     static Random random = new Random();
     static int random_data = 0;
     static Scanner menu = new Scanner(System.in);
@@ -163,60 +164,75 @@ public class index2 {
             changed = "where id = \"korea\"";
             cate_name = "한식";
             select();
-            JLabel label = new JLabel("<html><br><br><br><br><br><center>오늘의 추천 메뉴는 "+menu_list.get(random_data).getname()+" 입니다!"
-            		+ "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>" + "창원대 근처의 " + menu_list.get(random_data).getname()+" 맛집 추천<br><br>"
-    				+ menu_list.get(random_data).getPlace()+"</center></html>");
-            p2.add(label);
+            
         }
         else if(cate == "중식"){
             changed = "where id = \"china\"";
             cate_name = "중식";
             select();
-            JLabel label = new JLabel("<html><br><br><center>오늘의 추천 메뉴는 "+menu_list.get(random_data).getname()+" 입니다!"
-            		+ "<br><br><br>" + "창원대 근처의 " + menu_list.get(random_data).getname()+" 맛집 추천<br><br>"
-    				+ menu_list.get(random_data).getPlace()+"</center></html>");
-            p2.add(label);
+
         }
         else if(cate == "일식"){
             changed = "where id = \"japan\"";
             cate_name = "일식";
             select();
-            JLabel label = new JLabel("<html><br><br><center>오늘의 추천 메뉴는 "+menu_list.get(random_data).getname()+" 입니다!"
-            		+ "<br><br><br>" + "창원대 근처의 " + menu_list.get(random_data).getname()+" 맛집 추천<br><br>"
-    				+ menu_list.get(random_data).getPlace()+"</center></html>");
-            p2.add(label);
+       
         }
         else if(cate == "양식"){
             changed = "where id = \"western\"";
             cate_name = "양식";
             select();
-            JLabel label = new JLabel("<html><br><br><center>오늘의 추천 메뉴는 "+menu_list.get(random_data).getname()+" 입니다!"
-            		+ "<br><br><br>" + "창원대 근처의 " + menu_list.get(random_data).getname()+" 맛집 추천<br><br>"
-            				+ menu_list.get(random_data).getPlace()+"</center></html>");            
-           
-           
-            p2.add(label);
+          
         }
         else if(cate == "전체 랜덤"){													//
             changed = "";
             cate_name = "전체 랜덤";
             select();
-            JLabel label = new JLabel("<html><br><br><center>오늘의 추천 메뉴는 "+menu_list.get(random_data).getname()+" 입니다!"
-            		+ "<br><br><br>" + "창원대 근처의 " + menu_list.get(random_data).getname()+" 맛집 추천<br><br>"
-    				+ menu_list.get(random_data).getPlace()+"</center></html>");
-            p2.add(label);
+         
         }
         
+        JLabel label = new JLabel("<html><br><br><br><br><center>오늘의 추천 메뉴는 "+menu_list.get(random_data).getname()+" 입니다!"
+        		+ "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>" + "창원대 근처의 " + menu_list.get(random_data).getname()+" 맛집 추천<br><br>"
+				+ menu_list.get(random_data).getPlace()+"</center></html>");
+        p2.add(label);
         
-<<<<<<< Updated upstream
-=======
+        JButton re = new JButton("다시하기");
+        re.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		f2.dispose();
+        		sub_Frame(cate);
+        	}
+        });
+        JButton back = new JButton("뒤로가기");
+        back.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		f2.dispose();
+        		menu_list.clear();
+        		main_Frame();
+        	}
+        });
+        
         JPanel pnl = new JPanel();
         
         
         pnl.add(re);
         pnl.add(back);
->>>>>>> Stashed changes
         f2.add(p2);
+        f2.add(pnl,BorderLayout.SOUTH);
+        re.setBackground(Color.WHITE);
+        back.setBackground(Color.WHITE);
+//        re.setBorderPainted(false);
+//        back.setBorderPainted(false);
+        
+        JLabel imgLabel = new JLabel();
+        ImageIcon icon = new ImageIcon("src/img/"+ menu_list.get(random_data).getIdx()+".jpg");
+        imgLabel.setIcon(icon);
+        imgLabel.setBounds(200,100,400,400);
+//        imgLabel.setSize(400, 400);
+        imgLabel.setHorizontalAlignment(JLabel.CENTER);
+        f2.add(imgLabel,BorderLayout.CENTER);
+        f2.add(p2);
+        
         f2.setVisible(true);
         
         
@@ -241,13 +257,14 @@ public class index2 {
             try {
                 Statement st = conn.createStatement();
                 ResultSet rs = null;
-                String sql = "select name, place from total " + changed ;
+                String sql = "select name, place, idx from total " + changed ;
                 rs = st.executeQuery(sql);
 
                 while (rs.next()) {
                     UserBean bean = new UserBean();
                     bean.setname(rs.getString("name"));
                     bean.setPlace(rs.getString("place"));
+                    bean.setIdx(rs.getInt("idx"));
                     menu_list.add(bean);
                 }
 
@@ -267,3 +284,4 @@ public class index2 {
         main_Frame();
     }
 }
+
