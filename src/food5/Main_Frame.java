@@ -15,6 +15,7 @@ import java.util.Scanner;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 
@@ -111,13 +112,11 @@ public class Main_Frame extends JFrame{
 	     f.getContentPane().add(j3);
 	     // 타이틀 만들기
 	     JPanel title = new JPanel();
-	     title.setLayout(new FlowLayout(FlowLayout.RIGHT));
 
 	     title.setBackground(Color.BLACK);
 	     f.setUndecorated(true); 
 	     j3.add(title,BorderLayout.NORTH);
 	     JButton esc = new JButton();
-	     title.add(esc);
 	     esc.addActionListener(new ActionListener() {
 	            @Override
 	            public void actionPerformed(ActionEvent e) {
@@ -125,6 +124,19 @@ public class Main_Frame extends JFrame{
 	            }
 	        });
 	     esc.setPreferredSize(new Dimension(40, 40));
+	     JPanel title_p = new JPanel();
+	     title_p.setLayout(new FlowLayout(FlowLayout.RIGHT));
+	     title.setLayout(new GridLayout(1,3));
+	     title_p.add(esc);
+	     title_p.setBackground(null);
+	     Image rice = new ImageIcon(Main_Frame.class.getResource("/img/rice.png")).getImage();
+	     JLabel title_j = new JLabel("<html><center>창원대 뭐 먹지?</center></html>");
+	     
+	     title_j.setIcon(new ImageIcon(rice.getScaledInstance(30, 30, Image.SCALE_SMOOTH)));
+	     title_j.setForeground(Color.WHITE);
+	     title_j.setFont(title_j.getFont().deriveFont(17.0f));
+	     title.add(title_j);
+	     title.add(title_p);
 	     // 타이틀 만들기
 	     j3.add(j1,BorderLayout.CENTER);
 	     j3.add(j2,BorderLayout.SOUTH);
