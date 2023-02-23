@@ -56,12 +56,5 @@ public class Review_Frame {
     f3.setVisible(true);
        }
    
-//   public static void main(String[] args) {
-//      SwingUtilities.invokeLater(new Runnable() {
-//         public void run() {
-//            Review_Frame jFrame = new Review_Frame();
-//         }
-//      });
-//   }
 
 }
