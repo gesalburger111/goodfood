@@ -82,7 +82,7 @@ public class Sub_Frame {
 	        		main.main_Frame();
 	        	}
 	        });
-	        
+   
 	        JPanel pnl = new JPanel();
 	        
 	        
@@ -106,10 +106,11 @@ public class Sub_Frame {
 	        f2.add(p2);
 	        
 	        f2.setVisible(true);
-	        
-	        
+	       
 
 	    }
+
+	}
 
 	    
 }

@@ -18,6 +18,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+
 public class Sub_Frame {
 	public static void sub_Frame(String cate){
 		Main_Frame main = new Main_Frame();
@@ -76,9 +77,9 @@ public class Sub_Frame {
 //	        	}
 //	        }
 //	        
-	        JLabel label = new JLabel("<html><br><br><center>오늘의 추천 메뉴는 <strong>"+main.menu_list.get(main.random_data).getname()+"</strong> 입니다!"
+	        JLabel label = new JLabel("<html><br><br><center>오늘의 추천 메뉴는 <strong><font color='red'>"+main.menu_list.get(main.random_data).getname()+"</font></strong> 입니다!"
 	        		+ "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>" + "창원대 근처의 " + main.menu_list.get(main.random_data).getname()+" 맛집 추천<br><br>"
-					+ main.menu_list.get(main.random_data).getPlace()+ "<br>주소 : " + main.menu_list.get(main.random_data).getAdress()
+					+ "[ "+main.menu_list.get(main.random_data).getPlace()+" ]  평점("+getAvg()+"/5)"+"<br>주소 : " + main.menu_list.get(main.random_data).getAdress()
 							+ "</center></html>");
 	        label.setFont(label.getFont().deriveFont(15.0f));
 //	        label.setFont(new Font("",Font.BOLD,15));
@@ -126,10 +127,15 @@ public class Sub_Frame {
 	        f2.add(p2);
 //	        
 	        f2.setVisible(true);
-	        
-	        
 
 	    }
+	private static double getAvg() {
+		Main_Frame main = new Main_Frame();
+		int score = main.menu_list.get(main.random_data).getScore();
+		int count = main.menu_list.get(main.random_data).getCount();
+		double avg = score/(double)count;
+			return Math.round(avg*100)/100.0;
+	}
 
 	
 }

@@ -1,4 +1,4 @@
-package food3;
+package food_loading;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -26,9 +26,13 @@ public class Main_Frame {
     static ArrayList<UserBean> menu_list = new ArrayList<UserBean>();
     static String cate_name;
     static ArrayList<UserBean> list = new ArrayList<UserBean>();
+    
+    static Main_Frame id;  
+    
 	 public static void main_Frame(){
 		 Sub_Frame sub = new Sub_Frame();
  		 Review_Frame review_f = new Review_Frame();   
+ 		 
 		
  		 
     	 JFrame f = new JFrame("창원대 뭐 먹지?");
@@ -64,18 +68,7 @@ public class Main_Frame {
          western.setContentAreaFilled(false);
          total.setContentAreaFilled(false);
          review.setContentAreaFilled(false);
-//         korea.setBackground(Color.PINK);
-//         korea.setFocusPainted(false);
-//         china.setBackground(Color.PINK);
-//         china.setFocusPainted(false);
-//	     japan.setBackground(Color.PINK);
-//	     japan.setFocusPainted(false);
-//	     western.setBackground(Color.PINK);
-//	     western.setFocusPainted(false);
-//	     total.setBackground(Color.PINK);
-//	     total.setFocusPainted(false);
-//	     review.setBackground(Color.PINK);
-//	     review.setFocusPainted(false);
+
 
 	     j3.setBackground(Color.BLACK);
 	     j1.add(korea);
@@ -95,8 +88,9 @@ public class Main_Frame {
                 JButton btn = (JButton) e.getSource();
                 if(btn.getText().equals("한식")){
                     cate = "한식";
-                    sub.sub_Frame(cate);
-                    f.dispose(); 
+                    new Loading("한식");
+//                    sub.sub_Frame(cate);
+//                    f.dispose(); 
                 }
             }
         });
@@ -106,8 +100,9 @@ public class Main_Frame {
                 JButton btn = (JButton) e.getSource();
                 if(btn.getText().equals("중식")){
                     cate = "중식";
-                    sub.sub_Frame(cate);
-                    f.dispose();
+                    new Loading("중식");
+//                    sub.sub_Frame(cate);
+//                    f.dispose();
                 }
             }
         });
@@ -117,8 +112,9 @@ public class Main_Frame {
                 JButton btn = (JButton) e.getSource();
                 if(btn.getText().equals("일식")){
                     cate = "일식";
-                    sub.sub_Frame(cate);
-                    f.dispose();
+                    new Loading("일식");
+//                    sub.sub_Frame(cate);
+//                    f.dispose();
                 }
             }
         });
@@ -128,8 +124,9 @@ public class Main_Frame {
                 JButton btn = (JButton) e.getSource();
                 if(btn.getText().equals("양식")){
                     cate = "양식";
-                    sub.sub_Frame(cate);
-                    f.dispose();
+                    new Loading("양식");
+//                    sub.sub_Frame(cate);
+//                    f.dispose();
                 }
             }
         });
@@ -137,11 +134,14 @@ public class Main_Frame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JButton btn = (JButton) e.getSource();
+
                 if(btn.getText().equals("전체 랜덤")){
                     cate = "전체 랜덤";
-                    sub.sub_Frame(cate);
-                    f.dispose();
-                }
+                    
+                    new Loading("전체 랜덤"); 
+                 // sub.sub_Frame(cate);
+//                   f.dispose();                
+                   }
             }
         });
         review.addActionListener(new ActionListener() {

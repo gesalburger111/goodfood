@@ -22,7 +22,7 @@ public class Select {
             try {
                 Statement st = conn.createStatement();
                 ResultSet rs = null;
-                String sql = "select name, place, idx, adress from total " + main.changed ;
+                String sql = "select name, place, idx, adress, count, score from total " + main.changed ;
                 rs = st.executeQuery(sql);
 
                 while (rs.next()) {
@@ -31,9 +31,11 @@ public class Select {
                     bean.setPlace(rs.getString("place"));
                     bean.setIdx(rs.getInt("idx"));
                     bean.setAdress(rs.getString("adress"));
+                    bean.setCount(rs.getInt("count"));
+                    bean.setScore(rs.getInt("score"));
                     main.menu_list.add(bean);
                 }
-
+                
                 main.random_data = main.random.nextInt(main.menu_list.size());
 
             } catch (SQLException s) {

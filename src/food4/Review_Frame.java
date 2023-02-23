@@ -79,7 +79,7 @@ public class Review_Frame {
 	      f3.setTitle("리뷰");
 	      
 	      f3.add(p6,BorderLayout.CENTER);
-	      f3.setUndecorated(true); 
+//	      f3.setUndecorated(true); 
 
 	      list.list();
 	      JLabel labellist1;
@@ -101,6 +101,8 @@ public class Review_Frame {
 	     JButton back = new JButton("뒤로가기");
 	     p5.add(btn);
 	     p7.add(back);
+	     
+	     // 별점 버튼
 	     btn.addActionListener(new ActionListener() {              //
 	        @Override
 	         public void actionPerformed(ActionEvent e) {
@@ -111,8 +113,8 @@ public class Review_Frame {
 	              score = Integer.parseInt(score_write.getText());
 	           }else score =0;
 	          
-	          if(num<=40 && num>=0 && score>=1 && score<=5) {
-	              JButton btn = (JButton) e.getSource();
+	          if(num <=40 && num >0 && score >=1 && score <=5) {
+	              JButton btn = (JButton)e.getSource();
 	              f3.dispose();
 	              main.list.clear();
 //	             String num = restaurant_num.getText();
@@ -127,6 +129,8 @@ public class Review_Frame {
 	           update.update(num,score);
 	        }
 	     });
+	     
+	     // 뒤로가기 버튼
 	     back.addActionListener(new ActionListener() {
 	         public void actionPerformed(ActionEvent e) {
 	            f3.dispose();

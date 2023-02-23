@@ -5,6 +5,22 @@ public class UserBean {
     String name;
     String place;
     int idx;
+    int score;
+    int count;
+    
+    
+    public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
+	}
+	public int getScore() {
+		return score;
+	}
+	public void setScore(int socre) {
+		this.score = socre;
+	}
     public String getname(){
         return name;
     }
