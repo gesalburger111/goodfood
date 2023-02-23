@@ -15,7 +15,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class Main_Frame {
+public class Main_Frame extends JFrame{
 	static Random random = new Random();
     static int random_data = 0;
     static Scanner menu = new Scanner(System.in);
