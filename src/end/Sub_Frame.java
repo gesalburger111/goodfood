@@ -162,7 +162,7 @@ public class Sub_Frame {
         
         
         JLabel imgLabel = new JLabel();
-        ImageIcon icon = new ImageIcon("src/img/"+ main.menu_list.get(main.random_data).getIdx()+".jpg");
+        ImageIcon icon = new ImageIcon(Sub_Frame.class.getResource("/img/"+ main.menu_list.get(main.random_data).getIdx() +".jpg"));
         imgLabel.setIcon(icon);
         imgLabel.setBounds(200,150,400,400);
         imgLabel.setHorizontalAlignment(JLabel.CENTER);
