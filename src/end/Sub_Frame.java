@@ -2,6 +2,7 @@ package end;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -9,12 +10,16 @@ import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
 
 public class Sub_Frame {
 	public static void sub_Frame(String cate){
@@ -104,14 +109,30 @@ public class Sub_Frame {
 
     
         
-        JLabel label = new JLabel("<html><br><br><center>오늘의 추천 메뉴는 <font color='red'>"+main.menu_list.get(main.random_data).getname()+"</font> 입니다!"
-              + "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>" + "창원대 근처의 " + main.menu_list.get(main.random_data).getname()+" 맛집 추천<br><br>["
-              + main.menu_list.get(main.random_data).getPlace()+"]<br>평점("+getAvg()+"/5)"+"<br>주소 : " + main.menu_list.get(main.random_data).getAdress()
-              + "</center></html>");
+//        JLabel label = new JLabel("<html><br><br><center>오늘의 추천 메뉴는 <font color='red'>"+main.menu_list.get(main.random_data).getname()+"</font> 입니다!"
+//              + "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>" + "창원대 근처의 " + main.menu_list.get(main.random_data).getname()+" 맛집 추천<br><br>["
+//              + main.menu_list.get(main.random_data).getPlace()+"]<br>평점("+getAvg()+"/5)"+"<br>주소 : " + main.menu_list.get(main.random_data).getAdress()
+//              + "</center></html>");
+//        
+//        label.setFont(new Font("맑은 고딕",Font.BOLD, 11));
+//        label.setFont(label.getFont().deriveFont(17.5f));
+//        p2.add(label);
+        p2.setLayout(new GridLayout(4,1));
         
-        label.setFont(new Font("맑은 고딕",Font.BOLD, 11));
-        label.setFont(label.getFont().deriveFont(17.5f));
-        p2.add(label);
+        JLabel label1 = new JLabel("<html>오늘의 추천 메뉴는 <font color='red'>"+ main.menu_list.get(main.random_data).getname()+"</font> 입니다!<br><br><br><br></html>", JLabel.CENTER);
+        label1.setFont(new Font("맑은 고딕",Font.BOLD, 11));
+        label1.setFont(label1.getFont().deriveFont(17.5f));
+        p2.add(label1);
+        p2.add(new JLabel("  "));
+        p2.add(new JLabel("  "));
+        
+        JLabel label2 = new JLabel("<html><center>창원대 근처의 " + main.menu_list.get(main.random_data).getname()+" 맛집 추천<br><br>["
+              + main.menu_list.get(main.random_data).getPlace()+"]<br>평점("+getAvg()+"/5)"+"<br>주소 : " + main.menu_list.get(main.random_data).getAdress()
+              + "<br><br></center></html>",JLabel.CENTER);
+        label2.setFont(new Font("맑은 고딕",Font.BOLD, 11));
+        label2.setFont(label1.getFont().deriveFont(17.5f));
+        p2.add(label2);
+        
         JButton re = new JButton();
         re.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
@@ -128,13 +149,36 @@ public class Sub_Frame {
         	}
         });
         
+        // 네이버 보기 ----------------
+        JButton map_btn = new JButton();
+        map_btn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               String url = main.menu_list.get(main.random_data).getUrl();
+               
+               try {
+                  Desktop.getDesktop().browse(new URI(url));
+               }catch(IOException e2) {
+                  e2.printStackTrace();
+               }catch(URISyntaxException e2) {
+                  e2.printStackTrace();                  
+               }
+            }
+        });
         
+        map_btn.setSize(81,32);
         
         JPanel pnl = new JPanel();
         
+        pnl.setLayout(new BorderLayout());
+        
         pnl.setBackground(Color.BLACK);
-        pnl.add(re);
+        pnl.setSize(800,50);
         pnl.add(back);
+        pnl.add(re);
+        pnl.add(map_btn);
+        pnl.setLayout(new GridLayout(1,3));
+
         f2.setResizable(false);
 //        f2.getContentPane().add(p2);
         f2.getContentPane().add(pnl,BorderLayout.SOUTH);
@@ -143,21 +187,30 @@ public class Sub_Frame {
         re.setBackground(null);
         re.setBorderPainted(false);
         re.setFocusPainted(false);
+        
         back.setBackground(null);
         back.setBorderPainted(false);
         back.setFocusPainted(false);
+        
+        map_btn.setBackground(null);
+        map_btn.setBorderPainted(false);
+        map_btn.setFocusPainted(false);
 
         
         Image imgre = new ImageIcon(Sub_Frame.class.getResource("/img/다시버튼.png")).getImage();
         Image imgback = new ImageIcon(Sub_Frame.class.getResource("/img/뒤로.png")).getImage();
         Image imgre2 = new ImageIcon(Sub_Frame.class.getResource("/img/다시마우스.png")).getImage();
         Image imgback2 = new ImageIcon(Sub_Frame.class.getResource("/img/뒤로마우스.png")).getImage();
+        Image imgmap = new ImageIcon(Sub_Frame.class.getResource("/img/map1.png")).getImage();
+        Image imgmap2 = new ImageIcon(Sub_Frame.class.getResource("/img/map3.png")).getImage();
         re.setIcon(new ImageIcon(imgre.getScaledInstance(81,32,Image.SCALE_SMOOTH)));
         back.setIcon(new ImageIcon(imgback.getScaledInstance(81,32,Image.SCALE_SMOOTH)));
+        map_btn.setIcon(new ImageIcon(imgmap.getScaledInstance(81,32,Image.SCALE_SMOOTH)));
 
 	     
 	    re.setRolloverIcon(new ImageIcon(imgre2.getScaledInstance(81,32,Image.SCALE_SMOOTH)));
 	    back.setRolloverIcon(new ImageIcon(imgback2.getScaledInstance(81,32,Image.SCALE_SMOOTH)));
+	    map_btn.setRolloverIcon(new ImageIcon(imgmap2.getScaledInstance(81,32,Image.SCALE_SMOOTH)));
         
         
         

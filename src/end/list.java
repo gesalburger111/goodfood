@@ -22,7 +22,7 @@ public class list {
             try {
                 Statement st = conn.createStatement();
                 ResultSet rs = null;
-                String sql = "select place, score, count from total";
+                String sql = "select place, score, count, url from total";
                 rs = st.executeQuery(sql);
 
                 while (rs.next()) {
@@ -31,7 +31,7 @@ public class list {
                     bean.setScore(rs.getInt("score"));
                     bean.setPlace(rs.getString("place"));
                     bean.setCount(rs.getInt("count"));
-                    
+                    bean.setUrl(rs.getString("url"));
                     main.list.add(bean);
                 }
                 
@@ -44,3 +44,4 @@ public class list {
     }
 
 }
+

@@ -23,7 +23,7 @@ public class Select {
             try {
                 Statement st = conn.createStatement();
                 ResultSet rs = null;
-                String sql = "select name, place, idx, adress, score, count from total " + main.changed ;
+                String sql = "select name, place, idx, adress, score, count, url from total " + main.changed ;
                 rs = st.executeQuery(sql);
 
                 while (rs.next()) {
@@ -34,6 +34,7 @@ public class Select {
                     bean.setCount(rs.getInt("count"));
                     bean.setIdx(rs.getInt("idx"));
                     bean.setAdress(rs.getString("adress"));
+                    bean.setUrl(rs.getString("url"));
                     main.menu_list.add(bean);
                 }
 
