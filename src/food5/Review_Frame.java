@@ -71,7 +71,6 @@ public class Review_Frame extends JFrame{
          num_range2.setValueClass(Integer.class);
          num_range2.setMinimum(new Integer(1));      // 별점 1~ 5
          num_range2.setMaximum(new Integer(5));
-
          JFormattedTextField score_write = new JFormattedTextField(num_range2);
          
          restaurant_num.setPreferredSize(new Dimension(50,30));
@@ -171,7 +170,7 @@ public class Review_Frame extends JFrame{
                  score = Integer.parseInt(score_write.getText());
               }else score =0;
              
-             if(num<=40 && num>=0 && score>=1 && score<=5) {
+             if(num<=40 && num>0 && score>=1 && score<=5) {
                  JButton btn = (JButton) e.getSource();
                  f3.dispose();
                  main.list.clear();
