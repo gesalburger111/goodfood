@@ -50,12 +50,7 @@ public class Review_Frame extends JFrame{
             p6.setLayout(new GridLayout(1,2));
             
 
- 
-         NumberFormatter num_range1 = new NumberFormatter();
-         num_range1.setValueClass(Integer.class);
-         num_range1.setMinimum(new Integer(1));      // 식당 번호 1~40까지만 입력
-         num_range1.setMaximum(new Integer(40));
-         JFormattedTextField restaurant_num = new JFormattedTextField(num_range1);
+         JFormattedTextField restaurant_num = new JFormattedTextField();
          restaurant_num.setPreferredSize(new Dimension(50,30));
          JLabel label = new JLabel("식당번호: ");
          Image imgreview = new ImageIcon(Review_Frame.class.getResource("/img/placeicon.png")).getImage();
@@ -64,16 +59,10 @@ public class Review_Frame extends JFrame{
          p5.add(label);
          p5.add(restaurant_num);
          p_back.add(p5);   //
-         NumberFormatter num_range2 = new NumberFormatter();
-         num_range2.setValueClass(Integer.class);
-         num_range2.setMinimum(new Integer(1));      // 별점 1~ 5
-         num_range2.setMaximum(new Integer(5));
 
-         JFormattedTextField score_write = new JFormattedTextField(num_range2);
          
-         restaurant_num.setPreferredSize(new Dimension(50,30));
-         score_write.setPreferredSize(new Dimension(50,30));
-         
+         JFormattedTextField score_write = new JFormattedTextField();
+         score_write.setPreferredSize(new Dimension(50,30));         
          JLabel label2 = new JLabel("<html>별점(1~5): ");
          Image imgreview2 = new ImageIcon(Review_Frame.class.getResource("/img/star.png")).getImage();
 
@@ -144,7 +133,7 @@ public class Review_Frame extends JFrame{
                  score = Integer.parseInt(score_write.getText());
               }else score =0;
              
-             if(num<=40 && num>=0 && score>=1 && score<=5) {
+             if(num<=40 && num>0 && score>=1 && score<=5.0) {
                  JButton btn = (JButton) e.getSource();
                  f3.dispose();
                  main.list.clear();

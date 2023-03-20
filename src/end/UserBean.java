@@ -8,6 +8,7 @@ public class UserBean {
     String adress;
     int score;
     int count;
+    String url;
     
     public String getname(){
         return name;
@@ -44,6 +45,12 @@ public class UserBean {
 	}
 	public void setCount(int count) {
 		this.count = count;
+	}
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
 	}
 
 }
